@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FactuPro - Gestion de Factures</title>
+  <link rel="stylesheet" href="facture.css"/>
+  <!-- Font Awesome pour icônes + info -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>FactuPro</h1>
+      <p>Gestion intelligente de vos factures</p>
+    </header>
+
+    <!-- Formulaire -->
+    <div class="card form-card">
+      <div class="card-header">
+        <h2><i class="fas fa-file-invoice"></i> Nouvelle Facture</h2>
+      </div>
+      <div class="form-grid">
+        <div class="input-group">
+          <label>
+            Client
+            <i class="fas fa-info-circle info-icon" title="Nom complet de l'entreprise ou du client"></i>
+          </label>
+          <input type="text" id="client" placeholder="ex: Dupont SARL" />
+        </div>
+        <div class="input-group">
+          <label>
+            Description
+            <i class="fas fa-info-circle info-icon" title="Détail de la prestation ou du produit"></i>
+          </label>
+          <input type="text" id="description" placeholder="ex: Développement site web" />
+        </div>
+        <div class="input-group">
+          <label>
+            Montant
+            <i class="fas fa-info-circle info-icon" title="Montant HT en euros, ex: 1500.00"></i>
+          </label>
+          <input type="number" id="montant" step="0.01" placeholder="0.00" />
+        </div>
+        <div class="input-group">
+          <label>
+            Statut
+            <i class="fas fa-info-circle info-icon" title="État actuel de la facture"></i>
+          </label>
+          <select id="statut">
+            <option value="En attente">En attente</option>
+            <option value="Payée">Payée</option>
+            <option value="Annulée">Annulée</option>
+          </select>
+        </div>
+      </div>
+        <button id="ajouter" class="btn-primary">
+          <i class="fas fa-plus"></i> Ajouter Facture
+        </button>
+    </div>
+
+    <!-- Tableau -->
+    <div class="card table-card">
+      <div class="card-header">
+        <h2>Liste des Factures</h2>
+        <div class="stats">
+          <span class="stat">
+            <i class="fas fa-clock"></i> <strong id="count-attente">0</strong> en attente
+          </span>
+          <span class="stat">
+            <i class="fas fa-check-circle"></i> <strong id="count-paye">0</strong> payées
+          </span>
+        </div>
+      </div>
+      <div class="table-container">
+        <table id="tableau-factures">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Client</th>
+              <th>Description</th>
+              <th>Montant</th>
+              <th>Statut</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Total -->
+    <div class="card total-card">
+      <div class="total-content">
+        <div>
+          <h3>Total Payé</h3>
+          <p>Montant total des factures réglées</p>
+        </div>
+        <div class="total-amount">
+          <span id="total-paye">0.00</span> €
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="facture.js"></script>
+</body>
+</html>
